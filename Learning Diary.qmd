@@ -13,8 +13,6 @@ execute:
   warning: false
 ---
 
-#  Learning Diary check
-
  
 
 ::: {style="font-size: 100%;"}
@@ -27,43 +25,64 @@ Priyal Agarwal\
 23102422\
 `p.agarwal4@universityofgalway.ie`
 
-# 10-Feb-2024
-
 ::: {.callout-note icon="false"}
 ## Diary Entry Date: 10-Feb-2024
 
 Note that this entry is to explain the error came at the time of loading CSV in R studio and solution to the error.
 :::
 
-When I was trying to upload a CSV in R studio , I got error as @Fig-UploadError . No such file or directory.
+When I was trying to upload a CSV in R studio , I got error as @fig-UploadError . No such file or directory.
 
-*Figure 1*: No such file or directory error
-
-![UploadError](images/UploadError.png){#Fig-UploadError}
+![No such file or directory](images\UploadError.png){#fig-UploadError width="90%"}
 
 **Solution**:
 
 It seems that CSV file is places in different path and Path setup in R is different. So checked the path of directory using getwd(). This gave the detail of current path of R, changed this path to new path using setwd(). This resolved issue and CSV got uploaded successfully.
 
-## 14-Feb-2024
-
 ::: {.callout-note icon="false"}
 ## Diary Entry Date: 14-Feb-2024
 
-This diary entry is to explain the the issue I was getting while creating a histogram
+This diary entry is to explain the the issue I was getting while creating a histogram.
 :::
 
-*Figure 2*: No color in histogram even after giving color in code.
+@fig-ColorError: No color in histogram even after giving color in code.
 
-![](images/Assignment1_Error.png)
+![Color Error](images\ColorError.png){#fig-ColorError width="90%"}
+
+I was trying to create histogram to show distribution of age using above code, but when I was doing that I was getting gray color in histogram instead of light blue color which I gave.
+
+![](images\Emoji-Nervous-icon.png){width="10%"}
+
+![Colorless Histogram](images\ColorlessHistogram.png){#fig-ColorlessHistogram width="75%"}
 
 **Solution**
 
-I realized that parameter for color should be written as 'col' not 'color'. After changes, it worked.
+I realized that parameter for color should be written as 'col' not 'color' after checking on google.
 
-![](images/Assignment1_Solution.png){#ColorSolution}
-#26-Mar-2024
+![Color Solution](images/ColorSolution.png){#ColorSolution}
 
-I got solution for my mermaid issue from website:
-https://www.rdocumentation.org/packages/DiagrammeR/versions/1.0.11/topics/mermaid
+After changes, it worked and histogram shtarted showing correct color.
 
+![Colorful Histogram](images\ColorHistogram.png){#fig-ColorHistogram width="75%"}
+
+In my code I had two *col* one for chart and other for border, I wanted to try if I reverse the code and make 'color' as 'col' and 'col' to 'color', what will be the effect of that on my chart. Here is the modified code:
+
+![New experimental code](images\ColTrial.png){#fig-ColTrial width="90%"}
+
+When I interchanged it, as 'color' doesn't give any *Color* so it made the chart colorless and 'col' make it totally black. So in case We need to use two colors in the chart like in our case, one for chart and other for border. It's better to use *col= chart color* for chart color and **border= border color* eliminated confusion and give correct color in chart and border.
+
+![New code Histogram](images\NewCodeHistogram.png){#fig-NewCodeHistogram width="75%"}
+
+![Correct code](images\CorrectCode.png){#fig-CorrectCode width="90%"}
+
+::: {.callout-note icon="false"}
+## Diary Entry Date:26-Mar-2024
+:::
+
+I got solution for my mermaid issue from website: https://www.rdocumentation.org/packages/DiagrammeR/versions/1.0.11/topics/mermaid
+
+::: {.callout-note icon="false"}
+## Diary Entry Date:
+:::
+
+![Filter Error](images\Filter_Error.png){#FilterError}
