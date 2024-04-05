@@ -1,0 +1,69 @@
+---
+title: "Learning Diary"
+format: 
+  html:
+     code-background: true
+     embed-resources: true
+     
+     toc: true
+     toc-expand: 2
+     toc-title: Contents
+     toc-depth: 3
+execute: 
+  warning: false
+---
+
+#  Learning Diary check
+
+ 
+
+::: {style="font-size: 100%;"}
+This learning diary is created to capture error occurred while learning R programming.
+:::
+
+ 
+
+Priyal Agarwal\
+23102422\
+`p.agarwal4@universityofgalway.ie`
+
+# 10-Feb-2024
+
+::: {.callout-note icon="false"}
+## Diary Entry Date: 10-Feb-2024
+
+Note that this entry is to explain the error came at the time of loading CSV in R studio and solution to the error.
+:::
+
+When I was trying to upload a CSV in R studio , I got error as @Fig-UploadError . No such file or directory.
+
+*Figure 1*: No such file or directory error
+
+![UploadError](images/UploadError.png){#Fig-UploadError}
+
+**Solution**:
+
+It seems that CSV file is places in different path and Path setup in R is different. So checked the path of directory using getwd(). This gave the detail of current path of R, changed this path to new path using setwd(). This resolved issue and CSV got uploaded successfully.
+
+## 14-Feb-2024
+
+::: {.callout-note icon="false"}
+## Diary Entry Date: 14-Feb-2024
+
+This diary entry is to explain the the issue I was getting while creating a histogram
+:::
+
+*Figure 2*: No color in histogram even after giving color in code.
+
+![](images/Assignment1_Error.png)
+
+**Solution**
+
+I realized that parameter for color should be written as 'col' not 'color'. After changes, it worked.
+
+![](images/Assignment1_Solution.png){#ColorSolution}
+#26-Mar-2024
+
+I got solution for my mermaid issue from website:
+https://www.rdocumentation.org/packages/DiagrammeR/versions/1.0.11/topics/mermaid
+

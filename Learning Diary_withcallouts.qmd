@@ -1,0 +1,78 @@
+---
+title: "Learning Diary"
+format: 
+  html:
+     code-background: true
+     embed-resources: true
+     
+     toc: true
+     toc-expand: 2
+     toc-title: Contents
+     toc-depth: 3
+execute: 
+  warning: false
+---
+
+## Learning Diary
+
+ 
+
+::: {style="font-size: 100%;"}
+This learning diary is created to capture error occurred while learning R programming.
+:::
+
+ 
+
+Priyal Agarwal\
+23102422\
+`p.agarwal4@universityofgalway.ie`
+
+### 10-Feb-2024
+
+::: callout-note
+**Diary Entry Date:** 10-Feb-24
+```{r}
+
+```
+
+Note that this entry is to explain the error came at the time of loading CSV in R studio and solution to the error.
+:::
+
+When I was trying to upload a CSV in R studio , I got error as @Fig-UploadError . No such file or directory.
+
+
+
+::: {.callout-note appearance="simple"}
+
+## Pay Attention  -callout simple appearance
+
+Using callouts is an effective way to highlight content that your reader give special consideration or attention.
+
+:::
+
+*Figure 1*: No such file or directory error
+
+![UploadError](images/UploadError.png){#Fig-UploadError}
+
+::: {.callout-note icon=false}
+
+## Pay Attention Icon
+
+Using callouts is an effective way to highlight content that your reader give special consideration or attention.
+
+:::
+
+
+
+**Solution**:
+
+It seems that CSV file is places in different path and Path setup in R is different. So checked the path of directory using getwd(). This gave the detail of current path of R, changed this path to new path using setwd(). This resolved issue and CSV got uploaded successfully.
+
+::: {.callout-caution collapse="true"}
+## Expand To Learn About Collapse
+
+This is an example of a 'folded' caution callout that can be expanded by the user. You can use `collapse="true"` to collapse it by default or `collapse="false"` to make a collapsible callout that is expanded by default.
+:::
+
+
+The `echo: false` option disables the printing of code (only output is displayed).
