@@ -25,7 +25,6 @@ This learning diary is created to capture error occurred while learning R progra
 
  
 
-
 # Diary Entry1
 
 ::: {.callout-note icon="false"}
@@ -49,7 +48,6 @@ It seems that CSV file is places in different path and Path setup in R is differ
 
 This diary entry is to explain the the issue I was getting while creating a histogram.
 :::
-
 
 @fig-ColorError: No color in histogram even after giving color in code.
 
@@ -92,6 +90,12 @@ This diary entry is to explain th issue I got while trying to include mermaid in
 I wanted to try mermaid to include in my quarto document so tried with the syntax I got related to mermaid and included in the document as shown in \@
 
 ![Mermaid Error](images\MermaidError.png){#fig-MermaidError width="90%"} Even though I was already using quarto, but on the basis of comments I installed quarto packages, but it didn't resolve this issue. I downloaded mermaid package from **Git** and kept in the same folder as my quarto, still issue was there. google suggested me to run code 'chooseCRANmirror(graphics = FALSE)' and choose one country location to utilize Cran for graphics. Tried, no solution yet :\|
+
+```{mermaid}
+flowchart LR
+markdown --> M1[newLines]
+
+```
 
 After that I got one link using which I was able to make graphs by utlizing **DiagrammeR** https://www.rdocumentation.org/packages/DiagrammeR/versions/1.0.11/topics/mermaid
 
@@ -137,16 +141,13 @@ I tried to filter my dataset for specific countries 'India, Ireland' for one dat
 This entry is to explain the error while working on GAM model.
 :::
 
-I decided to make my GAM model @fig-GAMCode for filtered dataset 'Eduction_dataset_2013', which contains data for all countries but only for year 2013.But while running I got Error @fig-GAMError 
-
+I decided to make my GAM model @fig-GAMCode for filtered dataset 'Eduction_dataset_2013', which contains data for all countries but only for year 2013.But while running I got Error @fig-GAMError
 
 ![GAM Code](images\GAMCode.png){#fig-GAMCode width="90%"}
 
 ![GAM Error](images\GAMError.png){#fig-GAMError width="90%"}
 
-**Solution**
-I knew that this error comes when code is returning value other than True/False(Error came for last line of code while plotting model). I further analysed my code line by line and saw that while summarising model I am getting Nan values in **P values**, this indicated underlying issue in the data. 
-![Summarise Model](images\SummariseModel.png){#fig-SummariseModel width="90%"}
+**Solution** I knew that this error comes when code is returning value other than True/False(Error came for last line of code while plotting model). I further analysed my code line by line and saw that while summarising model I am getting Nan values in **P values**, this indicated underlying issue in the data. ![Summarise Model](images\SummariseModel.png){#fig-SummariseModel width="90%"}
 
 Further analysis through google revealed that when we fit the model and data is not sufficient to build the model, we get this error. So I decided to run my model for my actual dataset 'Education_dataset'. My code ran successfully.
 
@@ -154,19 +155,16 @@ Further analysis through google revealed that when we fit the model and data is 
 
 ::: {.callout-note icon="false"}
 ## Diary Entry Date: 04-Apr-2024
+
 This entry is to explain the error while working on leaflet I got.
 :::
 
-I worked on the geomaps and was happy to implemented, but at the end moment I started getting new error  @fig-LeafletError in the code, which was working previously.
+I worked on the geomaps and was happy to implemented, but at the end moment I started getting new error @fig-LeafletError in the code, which was working previously.
 
 ![Leaflet Error](images\LeafletError.png){#fig-LeafletError width="90%"}
- 
- It seemed that it was not getting any directory or folder, but as I ddin't change anything, I was unsure of this.
-Chatgpt suggested to Manually created the folder where files was missing as it may help R to create the Jscript, CSS files it was creating for maps. Did that but when I ran the code again after folder creation, it removed manually created folder and I started getting new error. 
 
+It seemed that it was not getting any directory or folder, but as I ddin't change anything, I was unsure of this. Chatgpt suggested to Manually created the folder where files was missing as it may help R to create the Jscript, CSS files it was creating for maps. Did that but when I ran the code again after folder creation, it removed manually created folder and I started getting new error.
 
 ![Leaflet Error2](images\LeafletError2.png){#fig-LeafletError2 width="90%"}
 
 I changed my code, still it didn't work. Checked github https://github.com/Leaflet/Leaflet/issues/5288 suggested to install some packages for leaflet, still no solution. After many hours of debugging and trial-error, I came to know that while formatting my document I removed Library(leaflet), which gave me a lesson to keep all libraries in first chunk to avoid unnecessary time waste. After keeping library, code ran successfully.
-
-
