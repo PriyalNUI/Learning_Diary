@@ -1,0 +1,172 @@
+---
+title: "Learning Diary"
+format: 
+  html:
+     code-background: true
+     embed-resources: true
+     
+     toc: true
+     toc-expand: 2
+     toc-title: Contents
+     toc-depth: 3
+execute: 
+  warning: false
+---
+
+Priyal Agarwal\
+23102422\
+`p.agarwal4@universityofgalway.ie`
+
+ 
+
+::: {style="font-size: 100%;"}
+This learning diary is created to capture error occurred while learning R programming.
+:::
+
+ 
+
+
+# Diary Entry1
+
+::: {.callout-note icon="false"}
+## Diary Entry Date: 14-Feb-2024
+
+Note that this entry is to explain the error came at the time of loading CSV in R studio and solution to the error.
+:::
+
+When I was trying to upload a CSV in R studio , I got error as @fig-UploadError . No such file or directory.
+
+![No such file or directory](images\UploadError.png){#fig-UploadError width="90%"}
+
+**Solution**:
+
+It seems that CSV file is places in different path and Path setup in R is different. So checked the path of directory using getwd(). This gave the detail of current path of R, changed this path to new path using setwd(). This resolved issue and CSV got uploaded successfully.
+
+# Diary Entry2
+
+::: {.callout-note icon="false"}
+## Diary Entry Date: 25-Feb-2024
+
+This diary entry is to explain the the issue I was getting while creating a histogram.
+:::
+
+
+@fig-ColorError: No color in histogram even after giving color in code.
+
+![Color Error](images\ColorError.png){#fig-ColorError width="90%"}
+
+I was trying to create histogram to show distribution of age using above code, but when I was doing that I was getting gray color in histogram instead of light blue color which I gave.
+
+![](images\Emoji-Nervous-icon.png){width="10%"}
+
+![Colorless Histogram](images\ColorlessHistogram.png){#fig-ColorlessHistogram width="75%"}
+
+**Solution**
+
+I realized that parameter for color should be written as 'col' not 'color' after checking on google.
+
+![Color Solution](images/ColorSolution.png){#ColorSolution}
+
+After changes, it worked and histogram shtarted showing correct color.
+
+![Colorful Histogram](images\ColorHistogram.png){#fig-ColorHistogram width="75%"}
+
+In my code I had two **col** one for chart and other for border, I wanted to try if I reverse the code and make 'color' as 'col' and 'col' to 'color', what will be the effect of that on my chart. Here is the modified code:
+
+![New experimental code](images\ColTrial.png){#fig-ColTrial width="90%"}
+
+When I interchanged it, as 'color' doesn't give any **Color** so it made the chart colorless and 'col' make it totally black. So in case We need to use two colors in the chart like in our case, one for chart and other for border. It's better to use **col= chart color** for chart color and **border= border color** eliminated confusion and give correct color in chart and border.
+
+![New code Histogram](images\NewCodeHistogram.png){#fig-NewCodeHistogram width="75%"}
+
+![Correct code](images\CorrectCode.png){#fig-CorrectCode width="90%"}
+
+# Diary Entry3
+
+::: {.callout-note icon="false"}
+## Diary Entry Date:20-Mar-2024
+
+This diary entry is to explain th issue I got while trying to include mermaid in my quarto document.
+:::
+
+I wanted to try mermaid to include in my quarto document so tried with the syntax I got related to mermaid and included in the document as shown in \@
+
+![Mermaid Error](images\MermaidError.png){#fig-MermaidError width="90%"} Even though I was already using quarto, but on the basis of comments I installed quarto packages, but it didn't resolve this issue. I downloaded mermaid package from **Git** and kept in the same folder as my quarto, still issue was there. google suggested me to run code 'chooseCRANmirror(graphics = FALSE)' and choose one country location to utilize Cran for graphics. Tried, no solution yet :\|
+
+After that I got one link using which I was able to make graphs by utlizing **DiagrammeR** https://www.rdocumentation.org/packages/DiagrammeR/versions/1.0.11/topics/mermaid
+
+::: {.callout-caution collapse="true"}
+```{r}
+library('DiagrammeR')
+DiagrammeR("
+   graph LR
+     A-->B
+     A-->C
+     C-->E
+     B-->D
+     C-->D
+     D-->F
+     E-->F
+ ")
+```
+:::
+
+It is indeed good website and code given can be used to make graphs in R, still It didn't fulfill my requirement. I recalled that in lecture also one sample code was given. I tried that code and it worked and I was able to make mermaid flowchart.
+
+# Diary Entry4
+
+::: {.callout-note icon="false"}
+## Diary Entry Date: 28-Mar-2024
+
+This entry is to explain the error I got during applying filter in R and solution to the issue.
+:::
+
+I tried to filter my dataset for specific countries 'India, Ireland' for one data analysis. But while doing this I got @fig-Filter_Error that argument filter is missing.
+
+![Filter Error](images\Filter_Error.png){#fig-Filter_Error width="90%"}
+
+**Solution** I checked the syntax and got a link for filters related to R. https://dplyr.tidyverse.org/reference/filter.html. This link gave good explanation on filters in R. It made me realize the silly mistake I did. Instead of keeping column as **Final_Join\$Entity**, syntax needs to be **Final_Join, Entity**. for filtering '==' and '%in%',both works. After changes code worked and ran fine.
+
+![Filter Solution](images\FilterSol.png){#fig-FilterSol width="90%"}
+
+# Diary Entry5
+
+::: {.callout-note icon="false"}
+## Diary Entry Date: 02-Apr-2024
+
+This entry is to explain the error while working on GAM model.
+:::
+
+I decided to make my GAM model @fig-GAMCode for filtered dataset 'Eduction_dataset_2013', which contains data for all countries but only for year 2013.But while running I got Error @fig-GAMError 
+
+
+![GAM Code](images\GAMCode.png){#fig-GAMCode width="90%"}
+
+![GAM Error](images\GAMError.png){#fig-GAMError width="90%"}
+
+**Solution**
+I knew that this error comes when code is returning value other than True/False(Error came for last line of code while plotting model). I further analysed my code line by line and saw that while summarising model I am getting Nan values in **P values**, this indicated underlying issue in the data. 
+![Summarise Model](images\SummariseModel.png){#fig-SummariseModel width="90%"}
+
+Further analysis through google revealed that when we fit the model and data is not sufficient to build the model, we get this error. So I decided to run my model for my actual dataset 'Education_dataset'. My code ran successfully.
+
+# Diary Entry6
+
+::: {.callout-note icon="false"}
+## Diary Entry Date: 04-Apr-2024
+This entry is to explain the error while working on leaflet I got.
+:::
+
+I worked on the geomaps and was happy to implemented, but at the end moment I started getting new error  @fig-LeafletError in the code, which was working previously.
+
+![Leaflet Error](images\LeafletError.png){#fig-LeafletError width="90%"}
+ 
+ It seemed that it was not getting any directory or folder, but as I ddin't change anything, I was unsure of this.
+Chatgpt suggested to Manually created the folder where files was missing as it may help R to create the Jscript, CSS files it was creating for maps. Did that but when I ran the code again after folder creation, it removed manually created folder and I started getting new error. 
+
+
+![Leaflet Error2](images\LeafletError2.png){#fig-LeafletError2 width="90%"}
+
+I changed my code, still it didn't work. Checked github https://github.com/Leaflet/Leaflet/issues/5288 suggested to install some packages for leaflet, still no solution. After many hours of debugging and trial-error, I came to know that while formatting my document I removed Library(leaflet), which gave me a lesson to keep all libraries in first chunk to avoid unnecessary time waste. After keeping library, code ran successfully.
+
+
